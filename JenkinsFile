@@ -12,6 +12,7 @@ node {
 
     stage('Deploying images') {
         sh "sudo kubectl apply -f ng-pod.yml"
+        sh "sudo kubectl apply -f ng-service.yml"
     }
 
 }
