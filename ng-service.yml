@@ -11,4 +11,4 @@ spec:
  #   nodePort: 30080
   type: NodePort
   selector:
-    run: nginx
+    app: nginx
