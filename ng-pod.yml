@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: otnihs/nginx:v2
+        image: otnihs/nginx:v2.1
         ports:
         - containerPort: 80
