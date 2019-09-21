@@ -1,4 +1,4 @@
-pipeline {
+node {
 
     stage('Clone sources') {
         git url: 'https://github.com/otnihs/jenkins.git'
