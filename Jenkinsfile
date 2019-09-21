@@ -5,7 +5,7 @@ node {
     }
 
     stage('Building images') {
-        sh "sudo docker build . -t otnihs/nginx:v1"
+        sh "sudo docker build . --no-cache -t otnihs/nginx:v1"
         sh "sudo docker push otnihs/nginx:v1"
 
     }
