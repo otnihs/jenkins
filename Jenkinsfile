@@ -5,8 +5,8 @@ node {
     }
 
     stage('Building images') {
-        sh "sudo docker build . --no-cache -t otnihs/nginx:v2.3"
-        sh "sudo docker push otnihs/nginx:v2.3"
+        sh "sudo docker build . --no-cache -t otnihs/nginx:v2.4"
+        sh "sudo docker push otnihs/nginx:v2.4"
 
     }
 
