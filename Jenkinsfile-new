@@ -1,5 +1,9 @@
 node {
 
+withEnv(['NEW_BUILDS_ALL_TIME=${NEW_BUILDS_ALL_TIME}']) {
+    def Version = VersionNumber projectStartDate: '2019-09-22', versionNumberString: '${BUILD_DAY}${BUILDS_TODAY}', versionPrefix: 'v', worstResultForIncrement: 'FAILURE';
+}
+
     stage('Clone sources') {
         git branch: 'development', url: 'https://github.com/otnihs/jenkins.git'
     }
