@@ -13,7 +13,7 @@ stages {
 
     stage('Building images') {
     steps {
-        sudo docker build . -t otnihs/nginx:$Version
+        sudo docker build . otnihs/nginx:$Version
         sudo docker push otnihs/nginx:$Version
         }
     }
