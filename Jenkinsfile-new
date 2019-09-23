@@ -1,8 +1,8 @@
 pipeline {
     agent any
     stages {
-withEnv(['NEW_BUILDS_ALL_TIME=${NEW_BUILDS_ALL_TIME}']) {
-    def Version = VersionNumber projectStartDate: '2019-09-22', versionNumberString: '${BUILD_DAY}${BUILDS_TODAY}', versionPrefix: 'v', worstResultForIncrement: 'FAILURE';
+withEnv(['Version=${Version}']) {
+    def version = VersionNumber projectStartDate: '2019-09-22', versionNumberString: '${BUILD_DAY}${BUILDS_TODAY}', versionPrefix: 'v', worstResultForIncrement: 'FAILURE';
 }
 stages {
     stage('Clone sources') {
