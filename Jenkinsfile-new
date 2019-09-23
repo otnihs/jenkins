@@ -1,0 +1,22 @@
+node {
+
+    stage('Clone sources') {
+        git branch: 'development', url: 'https://github.com/otnihs/jenkins.git'
+    }
+
+    stage('Building images') {
+        sh "sudo docker build . --no-cache -t otnihs/nginx:{version}"
+        sh "sudo docker push otnihs/nginx:{version}"
+
+    }
+
+    stage('Updating kubernetes yaml files version') {
+        sh "sed -i 's/{version}/${Version}/g' ng-pod-new.yml"
+    }
+
+    stage('Deploying images') {
+        sh "sudo kubectl apply -f ng-pod-new.yml"
+        sh "sudo kubectl apply -f ng-service.yml"
+    }
+
+}
