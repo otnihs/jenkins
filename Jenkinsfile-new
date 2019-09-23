@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    stages {
 withEnv(['NEW_BUILDS_ALL_TIME=${NEW_BUILDS_ALL_TIME}']) {
     def Version = VersionNumber projectStartDate: '2019-09-22', versionNumberString: '${BUILD_DAY}${BUILDS_TODAY}', versionPrefix: 'v', worstResultForIncrement: 'FAILURE';
 }
@@ -22,5 +23,5 @@ withEnv(['NEW_BUILDS_ALL_TIME=${NEW_BUILDS_ALL_TIME}']) {
         sh "sudo kubectl apply -f ng-pod-new.yml"
         sh "sudo kubectl apply -f ng-service.yml"
     }
-
+}
 }
