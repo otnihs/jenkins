@@ -1,12 +1,12 @@
 node {
 
     stage('Clone sources') {
-        git url: 'https://github.com/otnihs/jenkins.git'
+        git branch: 'Developement', url: 'https://github.com/otnihs/jenkins.git'
     }
 
     stage('Building images') {
-        sh "sudo docker build . -t otnihs/nginx:v1"
-        sh "sudo docker push otnihs/nginx:v1"
+        sh "sudo docker build . --no-cache -t otnihs/nginx:v2.4"
+        sh "sudo docker push otnihs/nginx:v2.4"
 
     }
 
