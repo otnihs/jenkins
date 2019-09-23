@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment {
-       Version = Version 
+       Version = version 
    }
-    def Version = VersionNumber projectStartDate: '2019-09-22', versionNumberString: '${BUILD_DAY}${BUILDS_TODAY}', versionPrefix: 'v', worstResultForIncrement: 'FAILURE';
+    def version = VersionNumber projectStartDate: '2019-09-22', versionNumberString: '${BUILD_DAY}${BUILDS_TODAY}', versionPrefix: 'v', worstResultForIncrement: 'FAILURE';
 stages {
     stage('Clone sources') {
     steps {
@@ -13,14 +13,14 @@ stages {
 
     stage('Building images') {
     steps {
-        sudo docker build . -t otnihs/nginx:${Version}
-        sudo docker push otnihs/nginx:${Version}
+        sudo docker build . -t otnihs/nginx:$Version
+        sudo docker push otnihs/nginx:$Version
         }
     }
 
     stage('Updating kubernetes yaml files version') {
     steps {
-        sed -i 's/{version}/${Version}/g' ng-pod-new.yml
+        sed -i 's/{version}/$Version/g' ng-pod-new.yml
         }
     }
 
