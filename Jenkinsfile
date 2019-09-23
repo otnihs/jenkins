@@ -1,7 +1,7 @@
 node {
 
     stage('Clone sources') {
-        git branch: 'Developement', url: 'https://github.com/otnihs/jenkins.git'
+        git branch: 'development', url: 'https://github.com/otnihs/jenkins.git'
     }
 
     stage('Building images') {
