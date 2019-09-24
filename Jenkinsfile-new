@@ -1,6 +1,6 @@
 pipeline {
     agent any
-   parameters([[$class: 'GitParameterDefinition', branch: '', branchFilter: '.*', defaultValue: '', description: 'Tag to choosen't, listSize: '0', name: 'Verion', quickFilerEnabled: false, selectedValue: 'Top', sortMode: 'DESCENDING', tagFilter: '*', type: 'PT_TAG']])
+   parameters([[$class: 'GitParameterDefinition', branch: '', branchFilter: '.*', defaultValue: '', description: 'Tag to choosen', listSize: '0', name: 'Verion', quickFilerEnabled: false, selectedValue: 'Top', sortMode: 'DESCENDING', tagFilter: '*', type: 'PT_TAG']])
 ])
 stages {
     stage('Clone sources') {
