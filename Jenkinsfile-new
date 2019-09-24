@@ -10,9 +10,9 @@ stages {
 
     stage('Building images') {
     steps {
-        echo "${env.Version}"
-        sudo docker build ./ otnihs/nginx-${env.Version}
-        sudo docker push otnihs/nginx-${env.Version}
+        sh ' echo "${env.Version}"'
+        sh 'sudo docker build ./ otnihs/nginx-${env.Version}'
+        sh 'sudo docker push otnihs/nginx-${env.Version}'
         }
     }
 
@@ -26,9 +26,9 @@ stages {
 
     stage('Deploying images') {
     steps {
-        sudo kubectl apply -f ng-pod-new.yml
+       sh 'sudo kubectl apply -f ng-pod-new.yml'
         
-       sudo kubectl apply -f ng-service.yml
+       sh 'sudo kubectl apply -f ng-service.yml'
     }
     }
 }
