@@ -18,7 +18,9 @@ stages {
 
     stage('Updating kubernetes yaml files version') {
     steps {
-        sed -i -e 's/{version}/${env.Version}/g' ng-pod-new.yml
+    sh '''
+           sed -i -e 's/{version}/${env.Version}/g' ng-pod-new.yml
+          '''
         }
     }
 
