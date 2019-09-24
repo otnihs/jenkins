@@ -10,7 +10,7 @@ stages {
 
     stage('Building images') {
     steps {
-        sh "echo ${Version}"
+        sh "echo ${env.Version}"
         sh "sudo docker build ./ otnihs/nginx-${env.Version}"
         sh "sudo docker push otnihs/nginx-${env.Version}"
         }
