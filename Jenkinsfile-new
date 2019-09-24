@@ -10,8 +10,9 @@ stages {
 
     stage('Building images') {
     steps {
-        sudo docker build . otnihs/nginx:${env.Version}
-        sudo docker push otnihs/nginx:${env.Version}
+        echo "${env.Version}"
+        sudo docker build ./ otnihs/nginx:"${env.Version}"
+        sudo docker push otnihs/nginx:"${env.Version}"
         }
     }
 
