@@ -16,3 +16,19 @@ node {
     }
 
 }
+
+script {
+       def scannerHome = tool 'sonarqube';
+          withSonarQubeEnv("sonarqube-server") {
+           sh "${tool("sonarqube")}/bin/sonar-scanner \
+           -Dsonar.projectKey=${sonarid} \
+           -Dsonar.projectName=${appname} \
+           -Dsonar.projectVersion=${currver} \
+           -Dsonar.issuesReport.html.enable=true \
+           -Dsonar.issuesReport.html.location=./ \
+           -Dsonar.sources=. \
+           -Dsonar.css.node=. \
+           -Dsonar.host.url=${env.SONAR_HOST_URL} \
+           -Dsonar.login=${env.SONAR_AUTH_TOKEN}"
+               }
+           }
